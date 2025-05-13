@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:country_picker/country_picker.dart';
+import 'package:pretium_finance/screens/dashboard.dart';
 import 'package:pretium_finance/utilities/dialogs.dart';
 
 class VerifyAccountScreen extends ConsumerStatefulWidget {
@@ -56,7 +57,12 @@ class _VerifyAccountScreenState extends ConsumerState<VerifyAccountScreen> {
           context: context,
           title: AppLocalizations.of(context)!.success,
           content: AppLocalizations.of(context)!.accountVerified,
-        ).then((_) => Navigator.pushReplacementNamed(context, '/'));
+        ).then(
+          (_) => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => DashboardScreen()),
+          ),
+        );
       }
     } catch (e) {
       if (mounted) {

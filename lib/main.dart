@@ -66,7 +66,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
     if (!mounted) return;
 
     final route = _determineNextRoute(newInstallStatus, loggedInStatus);
-    Future.delayed(const Duration(seconds: 5), () {
+    Future.delayed(const Duration(seconds: 1), () {
       NavigationService.navigatorKey.currentState?.pushReplacementNamed(route);
     });
   }
